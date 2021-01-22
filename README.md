@@ -1,12 +1,12 @@
 # VetClinic
 
-Available endpoints: 
-    - "/appointments/doctor/{id}/{date}"
+## Available endpoints: 
+    * "/appointments/doctor/{id}/{date}"
         Http method: GET;
         Path variables:
             - {id} - type: int; doctor's ID whose schedule you want to check; must contain 4 digits;
             - {date} - type: LocalDate; Format: YYYY:MM:DD; date you want to check; can not be in the past;
-    - "/appointments"
+    * "/appointments"
         Http method: POST;
         Request body: 
         {
@@ -15,7 +15,7 @@ Available endpoints:
             "doctorId": XXXX,                       - type: int; doctor's id customer wants to book appointment for; must contain 4 digits;
             "dateAndTime": "YYYY-MM-DD HH:MM:SS"    - type: LocalDateTime; date and time when customer wants to book appointment;
         }                                             it can not be sunday and time has to be between 9 a.m. and 5 p.m.;
-    - "/appointments"
+    * "/appointments"
         Http method: DELETE
         Request body:
         {
