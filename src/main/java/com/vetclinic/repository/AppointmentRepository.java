@@ -5,11 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Integer> {
 
-    Optional<List<Appointment>> findAllByDoctorIdAndDate(int id, LocalDate date);
+    List<Appointment> findAllByDoctorIdAndDate(int id, LocalDate date);
 
     boolean existsAppointmentByCustomerIdAndId(int customerId, int appointmentId);
 

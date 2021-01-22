@@ -22,7 +22,6 @@ public class AppointmentViewerImpl implements AppointmentViewer{
     @Override
     public List<AppointmentViewDto> viewDoctorsAppointments(int doctorId, LocalDate date) {
         List<AppointmentViewDto> appointments =  appointmentRepository.findAllByDoctorIdAndDate(doctorId, date)
-                                                        .orElse(Collections.emptyList())
                                                         .stream()
                                                         .map(AppointmentViewDto::new)
                                                         .collect(Collectors.toList());

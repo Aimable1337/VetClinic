@@ -11,8 +11,6 @@ import com.vetclinic.repository.CustomerRepository;
 import com.vetclinic.repository.DoctorRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-
 @Service
 public class BookingServiceImpl implements BookingService {
 
@@ -62,10 +60,9 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public boolean isDateFree(NewAppointmentDto newAppointmentDto) {
         return appointmentRepository.findAllByDoctorIdAndDate(newAppointmentDto.getDoctorId(), newAppointmentDto.getDate())
-                .orElse(Collections.emptyList())
                 .stream()
                 .noneMatch(appointment ->
-                        appointment.getStartTime().isBefore(newAppointmentDto.getStartTime()) && appointment.getEndTime().isAfter(newAppointmentDto.getStartTime())
+                                appointment.getStartTime().isBefore(newAppointmentDto.getStartTime()) && appointment.getEndTime().isAfter(newAppointmentDto.getStartTime())
                                 ||
                                 appointment.getStartTime().isBefore(newAppointmentDto.getStartTime().plusHours(1)) && appointment.getEndTime().isAfter(newAppointmentDto.getStartTime().plusHours(1))
                 );

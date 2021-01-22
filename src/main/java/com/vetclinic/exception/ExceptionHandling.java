@@ -74,7 +74,7 @@ public class ExceptionHandling {
 
         ExceptionResponse response = new ExceptionResponse(
                 HttpStatus.BAD_REQUEST.value(),
-                "Something went wrong.",
+                "Something went wrong. Probably you passed invalid data please check it and try again or contact us via email.",
                 System.currentTimeMillis()
         );
 
